@@ -108,44 +108,50 @@ export default {
         })
     },
 
-    saveGreeting: async function () {
-      // fired on form submit button used to update the greeting
+    // saveGreeting: async function () {
+    //   // fired on form submit button used to update the greeting
 
-      // disable the form while the value gets updated on-chain
-      this.$refs.fieldset.disabled = true
+    //   // disable the form while the value gets updated on-chain
+    //   this.$refs.fieldset.disabled = true
 
-      try {
+    //   try {
         
-        // make an update call to the smart contract
-        await window.contract.set_greeting({
-          // pass the new greeting
-          message: this.newGreeting,
-        })
-      } catch (e) {
-        alert(
-          "Something went wrong! " +
-            "Maybe you need to sign out and back in? " +
-            "Check your browser console for more info."
-        )
-        throw e //re-throw
-      } finally {
-        // re-enable the form, whether the call succeeded or failed
-        this.$refs.fieldset.disabled = false
-      }
+    //     // make an update call to the smart contract
+    //     await window.contract.set_greeting({
+    //       // pass the new greeting
+    //       message: this.newGreeting,
+    //     })
+    //   } catch (e) {
+    //     alert(
+    //       "Something went wrong! " +
+    //         "Maybe you need to sign out and back in? " +
+    //         "Check your browser console for more info."
+    //     )
+    //     throw e //re-throw
+    //   } finally {
+    //     // re-enable the form, whether the call succeeded or failed
+    //     this.$refs.fieldset.disabled = false
+    //   }
 
-      // update savedGreeting with persisted value
-      this.savedGreeting = this.newGreeting
-      //show new notification
-      this.notificationVisible = true 
+    //   // update savedGreeting with persisted value
+    //   this.savedGreeting = this.newGreeting
+    //   //show new notification
+    //   this.notificationVisible = true 
 
-      // remove Notification again after css animation completes
-      // this allows it to be shown again next time the form is submitted
+    //   // remove Notification again after css animation completes
+    //   // this allows it to be shown again next time the form is submitted
+    //   setTimeout(() => {
+    //     this.notificationVisible = false
+    //   }, 11000)
+
+    // },
+    saveGreeting(){
+      this.$refs.fieldset.disabled = true
       setTimeout(() => {
-        this.notificationVisible = false
-      }, 11000)
-
+        this.$refs.fieldset.disabled = false
+        this.savedGreeting = this.newGreeting
+      },3000)
     },
-
     logout: logout,
   },
 }
