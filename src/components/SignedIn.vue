@@ -28,21 +28,21 @@
         <span style="font-size:50px;color: rgb(30 30 30);word-break: break-all;">Hello <b style="color: #ffffff;word-break: break-all">{{ savedGreeting }}</b> !</span>
       </div>
     </main>
-    <Notification
+    <!-- <Notification
       v-show="notificationVisible"
       ref="notification"
       :networkId="networkId"
       :msg="'called method: set_greeting'"
       :contractId="contractId"
       :visible="false"
-    />
+    /> -->
   </div>
 </template>
 
 <script>
 import { logout } from "../utils"
 
-import Notification from "./Notification.vue"
+// import Notification from "./Notification.vue"
 
 export default {
   name: "SignedIn",
@@ -53,9 +53,9 @@ export default {
   //   }
   // },
 
-  components: {
-    Notification,
-  },
+  // components: {
+  //   Notification,
+  // },
 
   data: function () {
     return {
@@ -98,15 +98,15 @@ export default {
     }
   },
   methods: {
-    retrieveSavedGreeting() {
-      //retrieve greeting
-      window.contract
-        .get_greeting({ account_id: window.accountId })
-        .then((greetingFromContract) => {
-          this.savedGreeting = greetingFromContract
-          this.newGreeting = greetingFromContract
-        })
-    },
+    // retrieveSavedGreeting() {
+    //   //retrieve greeting
+    //   window.contract
+    //     .get_greeting({ account_id: window.accountId })
+    //     .then((greetingFromContract) => {
+    //       this.savedGreeting = greetingFromContract
+    //       this.newGreeting = greetingFromContract
+    //     })
+    // },
 
     // saveGreeting: async function () {
     //   // fired on form submit button used to update the greeting
@@ -136,13 +136,13 @@ export default {
     //   // update savedGreeting with persisted value
     //   this.savedGreeting = this.newGreeting
     //   //show new notification
-    //   this.notificationVisible = true 
+    //   // this.notificationVisible = true 
 
     //   // remove Notification again after css animation completes
     //   // this allows it to be shown again next time the form is submitted
-    //   setTimeout(() => {
-    //     this.notificationVisible = false
-    //   }, 11000)
+    //   // setTimeout(() => {
+    //   //   this.notificationVisible = false
+    //   // }, 11000)
 
     // },
     saveGreeting(){
@@ -150,7 +150,7 @@ export default {
       setTimeout(() => {
         this.$refs.fieldset.disabled = false
         this.savedGreeting = this.newGreeting
-      },3000)
+      },2800)
     },
     logout: logout,
   },
