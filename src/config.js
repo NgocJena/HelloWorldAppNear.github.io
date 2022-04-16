@@ -1,5 +1,5 @@
 const CONTRACT_NAME = process.env.VUE_APP_CONTRACT_NAME ||'HelloWorldAppNear'
-
+console.log('CONTRACT_NAME', CONTRACT_NAME);
 function getConfig(env) {
   switch (env) {
 

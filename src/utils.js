@@ -1,7 +1,7 @@
 import { connect, Contract, keyStores, WalletConnection } from 'near-api-js'
 import getConfig from './config'
 
-const nearConfig = getConfig('development')
+const nearConfig = getConfig(process.env.NODE_ENV || 'development')
 
 
 console.log('nearConfig', nearConfig)
@@ -38,5 +38,6 @@ export function login() {
   // user's behalf.
   // This works by creating a new access key for the user's account and storing
   // the private key in localStorage.
-  window.walletConnection.requestSignIn(nearConfig.contractName)
+  // window.walletConnection.requestSignIn(nearConfig.contractName)
+  window.walletConnection.requestSignIn(nearConfig["dev-1650044692452-43744451423160"])
 }
