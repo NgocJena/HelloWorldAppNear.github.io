@@ -1,5 +1,4 @@
-// const CONTRACT_NAME = process.env.VUE_APP_CONTRACT_NAME ||'HelloWorldAppNear'
-const CONTRACT_NAME = process.env.VUE_APP_CONTRACT_NAME
+const CONTRACT_NAME = process.env.VUE_APP_CONTRACT_NAME ||'HelloWorldAppNear'
 
 function getConfig(env) {
   switch (env) {
